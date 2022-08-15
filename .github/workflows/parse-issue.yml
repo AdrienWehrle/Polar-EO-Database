@@ -18,11 +18,21 @@ jobs:
 
       - run: cat order.json
 
+
+        run: |
+          python 
+      - name: Rename and convert file to YAML
+        run: |
+          output=$(python ./src/auto_json_to_database_yaml.py)
+          echo "::set-output name=changelog::$output"
+        id: step1
+      - name: Print changelog
+        run: echo "${{ steps.step1.outputs.changelog }}"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
           add-paths: |
-            order.json
+            ${{ steps.step1.outputs.changelog }}
           commit-message: Auto PR
           title: Update Changelog
           body: Update changelog to reflect release changes

@@ -17,9 +17,15 @@ with open("order.json", "r") as json_file:
 # extract sensor name
 sensor_name = data["sensor-name"]
 
+# build new file name
+new_file_name = f"./data/{sensor_name}.yaml"
+
 # rename file with sensor name and convert to YAML
-with open(f"./data/{sensor_name}.yaml", "w") as yaml_file:
+with open(new_file_name, "w") as yaml_file:
     outputs = yaml.dump(data, yaml_file, default_flow_style=False)
 
 # remove temporary JSON file
 os.remove("order.json")
+
+# output new file name
+print(new_file_name)
