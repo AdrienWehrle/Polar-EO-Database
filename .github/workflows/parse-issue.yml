@@ -18,14 +18,12 @@ jobs:
 
       - run: cat order.json
 
-
-        run: |
-          python 
       - name: Rename and convert file to YAML
         run: |
           output=$(python ./src/auto_json_to_database_yaml.py)
           echo "::set-output name=changelog::$output"
         id: step1
+
       - name: Print changelog
         run: echo "${{ steps.step1.outputs.changelog }}"
       - name: Create Pull Request
