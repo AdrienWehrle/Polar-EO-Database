@@ -1,0 +1,13 @@
+{
+  "sensor-name": "Sentinel-42",
+  "sensor-type": "Radar altimeter",
+  "dataset-level": "L1 (raw)",
+  "open-access": "",
+  "data-access-platform": "test.com",
+  "regions-covered": "",
+  "processing-software": "",
+  "scientific-application": "",
+  "parameters-sought": "",
+  "other-information": "",
+  "i_agree_to_follow_this_projects_code_of_conduct": true
+}
