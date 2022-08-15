@@ -17,3 +17,14 @@ jobs:
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > order.json
 
       - run: cat order.json
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          add-paths: |
+            order.json
+          commit-message: Auto PR
+          title: Update Changelog
+          body: Update changelog to reflect release changes
+          branch: update-changelog
+          base: main
